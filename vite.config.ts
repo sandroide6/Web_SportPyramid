@@ -4,6 +4,10 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  // 👇 AÑADE ESTA LÍNEA AQUÍ
+  base: '/Web_SportPyramid/', 
+  // 👆 ASEGÚRATE DE USAR EL NOMBRE EXACTO DEL REPOSITORIO
+  
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -27,8 +31,11 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+  // Nota: Veo que outDir apunta a 'dist/public'.
+  // Si renombraste 'dist' a 'docs', tu comando de compilación debe generar
+  // la carpeta 'docs/public'
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist/public"), 
     emptyOutDir: true,
   },
   server: {
